@@ -18,7 +18,6 @@ public class DetectiveController {
     IDetectiveService detectiveService;
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('TRAINEE')")
     public List<Detective> getDetectives() {
         return this.detectiveService.getAll();
     }
