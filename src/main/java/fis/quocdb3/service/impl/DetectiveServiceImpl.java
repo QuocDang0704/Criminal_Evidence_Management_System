@@ -5,9 +5,11 @@ import fis.quocdb3.repository.DetectiveRepository;
 import fis.quocdb3.service.CrudBase;
 import fis.quocdb3.service.IDetectiveService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -28,8 +30,8 @@ public class DetectiveServiceImpl
     }
 
     @Override
-    public Set<Detective> getAll() {
-        return new HashSet<>(this.detectiveRepository.findAll());
+    public List<Detective> getAll() {
+        return this.detectiveRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override

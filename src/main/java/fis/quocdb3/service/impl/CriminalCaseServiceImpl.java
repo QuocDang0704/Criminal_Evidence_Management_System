@@ -3,12 +3,11 @@ package fis.quocdb3.service.impl;
 import fis.quocdb3.domain.CriminalCase;
 import fis.quocdb3.repository.CriminalCaseRepository;
 import fis.quocdb3.service.ICriminalCaseService;
-import fis.quocdb3.service.CrudBase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class CriminalCaseServiceImpl
@@ -28,8 +27,8 @@ public class CriminalCaseServiceImpl
     }
 
     @Override
-    public Set<CriminalCase> getAll() {
-        return new HashSet<>(this.criminalCaseRepository.findAll());
+    public List<CriminalCase> getAll() {
+        return this.criminalCaseRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override

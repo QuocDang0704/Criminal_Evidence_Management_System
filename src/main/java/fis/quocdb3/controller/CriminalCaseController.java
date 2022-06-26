@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/api/criminalCase")
+@CrossOrigin("*")
 public class CriminalCaseController {
 
     @Autowired
@@ -32,7 +34,7 @@ public class CriminalCaseController {
     }
 
     @GetMapping("/")
-    public Set<CriminalCase> getCriminalCases() {
+    public List<CriminalCase> getCriminalCases() {
         return this.criminalCaseService.getAll();
     }
 

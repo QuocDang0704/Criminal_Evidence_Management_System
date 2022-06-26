@@ -5,9 +5,11 @@ import fis.quocdb3.repository.PersonRepository;
 import fis.quocdb3.service.CrudBase;
 import fis.quocdb3.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -27,8 +29,8 @@ public class PersonServiceImpl
     }
 
     @Override
-    public Set<Person> getAll() {
-        return new HashSet<>(this.personRepository.findAll());
+    public List<Person> getAll() {
+        return this.personRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override

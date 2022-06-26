@@ -5,10 +5,10 @@ import fis.quocdb3.repository.EvidenceRepository;
 import fis.quocdb3.service.CrudBase;
 import fis.quocdb3.service.IEvidenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class EvidenceServiceImpl
@@ -28,8 +28,8 @@ public class EvidenceServiceImpl
     }
 
     @Override
-    public Set<Evidence> getAll() {
-        return new HashSet<>(this.evidenceRepository.findAll());
+    public List<Evidence> getAll() {
+        return this.evidenceRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override
