@@ -4,8 +4,10 @@ import fis.quocdb3.domain.Detective;
 import fis.quocdb3.service.IDetectiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -16,7 +18,8 @@ public class DetectiveController {
     IDetectiveService detectiveService;
 
     @GetMapping("/")
-    public Set<Detective> getDetectives() {
+    @PreAuthorize("hasRole('TRAINEE')")
+    public List<Detective> getDetectives() {
         return this.detectiveService.getAll();
     }
 

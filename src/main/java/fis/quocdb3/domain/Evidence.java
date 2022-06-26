@@ -1,9 +1,12 @@
 package fis.quocdb3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -30,6 +33,7 @@ public class Evidence extends AbstractEntity{
     private Boolean archived=false;
 
     @OneToMany(mappedBy = "evidence", cascade = CascadeType.PERSIST)
-    private Set<TrackEntry> trackEntries = new HashSet<>();;
+    @JsonIgnore
+    private List<TrackEntry> trackEntries = new ArrayList<>();
 
 }

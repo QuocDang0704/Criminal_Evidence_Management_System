@@ -1,13 +1,13 @@
 package fis.quocdb3.service;
 
-import java.util.Set;
+import java.util.List;
 
 public interface CrudBase<T, K> {
     T add(T t);
 
     T update(T t);
 
-    Set<T> getAll();
+    List<T> getAll();
 
     T getById(K k);
 

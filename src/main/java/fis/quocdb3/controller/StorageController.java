@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/api/storage")
+@CrossOrigin("*")
 public class StorageController {
     @Autowired
     IStorageService storageService;
 
     @GetMapping("/")
-    public Set<Storage> getStorages() {
+    public List<Storage> getStorages() {
         return this.storageService.getAll();
     }
 

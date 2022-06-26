@@ -2,13 +2,12 @@ package fis.quocdb3.service.impl;
 
 import fis.quocdb3.domain.TrackEntry;
 import fis.quocdb3.repository.TrackEntryRepository;
-import fis.quocdb3.service.CrudBase;
 import fis.quocdb3.service.ITrackEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class TrackEntryServiceImpl
@@ -28,8 +27,8 @@ public class TrackEntryServiceImpl
     }
 
     @Override
-    public Set<TrackEntry> getAll() {
-        return new HashSet<>(this.trackEntryRepository.findAll());
+    public List<TrackEntry> getAll() {
+        return this.trackEntryRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override

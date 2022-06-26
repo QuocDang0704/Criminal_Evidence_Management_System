@@ -7,16 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/api/evidence")
+@CrossOrigin("*")
 public class EvidenceController {
     @Autowired
     IEvidenceService evidenceService;
 
     @GetMapping("/")
-    public Set<Evidence> getEvidences() {
+    public List<Evidence> getEvidences() {
         return this.evidenceService.getAll();
     }
 

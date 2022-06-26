@@ -23,17 +23,17 @@ public class ApplicationExceptionHandlder extends ResponseEntityExceptionHandler
                 );
     }
 
-    @ExceptionHandler(
-            value = Exception.class
-    )
-    public ResponseEntity<ErrorMessager> handleException(
-            Exception exception
-    ) {
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorMessager.builder()
-                        .code("INTERNAL_SERVER_ERROR")
-                        .messager(exception.getMessage())
-                        .build()
-                );
-    }
+//    @ExceptionHandler(
+//            value = Exception.class
+//    )
+//    public ResponseEntity<ErrorMessager> handleException(
+//            Exception exception
+//    ) {
+//        return ResponseEntity
+//                .status(HttpStatus.INTERNAL_SERVER_ERROR).body(ErrorMessager.builder()
+//                        .code("INTERNAL_SERVER_ERROR")
+//                        .messager(exception.getMessage())
+//                        .build()
+//                );
+//    }
 }

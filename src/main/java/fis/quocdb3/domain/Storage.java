@@ -1,5 +1,6 @@
 package fis.quocdb3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,8 +8,9 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @AllArgsConstructor
@@ -20,6 +22,7 @@ public class Storage extends AbstractEntity {
     private String location;
 
     @OneToMany(mappedBy = "storage")
-    private Set<Evidence> evidenceSet = new HashSet<>();
+    @JsonIgnore
+    private List<Evidence> evidenceSet = new ArrayList<>();
 
 }

@@ -1,11 +1,14 @@
 package fis.quocdb3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import fis.quocdb3.domain.enums.EmploymentStatus;
 import fis.quocdb3.domain.enums.Rank;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,13 +34,15 @@ public class Detective extends AbstractEntity {
     private EmploymentStatus status;
 
     @ManyToMany(cascade = CascadeType.MERGE)
+    @JsonIgnore
     @JoinTable(
             name = "working_detective_case",
             joinColumns = @JoinColumn(name = "detective_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "case_id", referencedColumnName = "id"))
-    private Set<CriminalCase> criminalCases = new HashSet<>();
+    private List<CriminalCase> criminalCases = new ArrayList<>();
 
     @OneToMany(mappedBy = "detective")
-    private Set<TrackEntry> trackEntries;
+    @JsonIgnore
+    private List<TrackEntry> trackEntries;
 
 }

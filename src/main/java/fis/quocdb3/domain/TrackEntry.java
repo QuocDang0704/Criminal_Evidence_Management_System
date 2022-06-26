@@ -1,5 +1,6 @@
 package fis.quocdb3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import fis.quocdb3.domain.enums.TrackAction;
 import lombok.*;
 

@@ -7,16 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/api/trackEntry")
+@CrossOrigin("*")
 public class TrackEntryController {
     @Autowired
     ITrackEntryService trackEntryService;
 
     @GetMapping("/")
-    public Set<TrackEntry> getTrackEntries() {
+    public List<TrackEntry> getTrackEntries() {
         return this.trackEntryService.getAll();
     }
 
