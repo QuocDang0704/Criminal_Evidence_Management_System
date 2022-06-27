@@ -4,7 +4,7 @@
 #### Data Model
 ![Mo hinh quan he du lieu](diagram.png)
 
-### công nghệ sử dụng
+### Công nghệ sử dụng
 1. Java Spring Boot
 2. JPA with MySQL
 3. Rest API
