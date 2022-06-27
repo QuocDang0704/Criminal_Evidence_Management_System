@@ -126,7 +126,7 @@ class DetectiveServiceTest {
         detective.setModifiedAt(LocalDateTime.now());
         detective.setVersion(1);
         detective.setArmed(true);
-        detective.setBadgeNumber("12e1321ana");
+        detective.setBadgeNumber("034585843");
         detective.setRank(Rank.valueOf("SENIOR"));
         detective.setStatus(EmploymentStatus.valueOf("VACATION"));
         Person person = new Person();
